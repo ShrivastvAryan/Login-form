@@ -5,7 +5,10 @@ function App() {
 
   return (
     <>
-    <LoginForm></LoginForm>
+    <div className='bg-blue-100 h-screen w-screen'>
+    <LoginForm>
+    </LoginForm>
+    </div>
     </>
   )
 }
