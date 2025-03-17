@@ -4,8 +4,8 @@ const express=require("express");
 const cors =require("cors");
 const app=express();
 const authRoute=require("./auth-router");
-const contactRoute=require("./utilits/db");
-const errorMiddleware=require("./middlewares/error-middleware");
+const contactRoute=require("./db");
+const errorMiddleware=require("./error-middleware");
 
 const corsOptions={
     origin:"http://localhost:5173",

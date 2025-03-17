@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const URL="";
+const URL="http://localhost:5000/api/auth/login";
 
 export const LoginForm=()=>{
 
@@ -27,13 +27,18 @@ export const LoginForm=()=>{
                 headers:{
                     "Content-Type":"application/json"
                 },
-                body:JSON.stringify(user)
+                body:JSON.stringify(user),
             });
 
             
 
             if(response.ok){
+                alert("Login successful")
                 setUser({email:"", password:""});
+            }
+            else{
+                alert("Invalid credential");
+                console.log("invalid credential")
             }
         }catch(error){
             console.log(error);
