@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+const URL="";
+
 export const LoginForm=()=>{
 
     const[user,setUser]=useState({
@@ -17,9 +19,25 @@ export const LoginForm=()=>{
         })
     };
 
-    const handleSubmit=(e)=>{
+    const handleSubmit=async (e)=>{
         e.preventDefault();
-        console.log(user);
+        try{
+            const response=await fetch(URL,{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(user)
+            });
+
+            
+
+            if(response.ok){
+                setUser({email:"", password:""});
+            }
+        }catch(error){
+            console.log(error);
+        }
     }
     return(
         <>
