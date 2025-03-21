@@ -29,6 +29,19 @@ const login=async (req,res)=>{
     }
 }
 
+// user logic to send user data
+
+const user=async(req,res)=>{
+    try {
+        const userData=req.user;
+        console.log(userData);
+        return res.status(200).json({msg:userData});
+
+    } catch (error) {
+        console.log("error from the user route")
+    }
+}
 
 
-module.exports=login;
+
+module.exports={login,user};

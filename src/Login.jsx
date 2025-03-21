@@ -1,4 +1,5 @@
 import { useState } from "react"
+import{useNavigate} from "react-router-dom"
 
 const URL="http://localhost:5000/api/auth/login";
 
@@ -8,6 +9,8 @@ export const LoginForm=()=>{
         email:"",
         password:""
     });
+
+   /* const navigate=useNavigate(); //for navigating to home page when clicking */
 
     const handleInput=(e)=>{
         let name=e.target.name;
@@ -35,6 +38,7 @@ export const LoginForm=()=>{
             if(response.ok){
                 alert("Login successful")
                 setUser({email:"", password:""});
+               /* navigate("/")*/
             }
             else{
                 alert("Invalid credential");
