@@ -6,7 +6,8 @@ export const AuthContext=createContext();
 
 export const AuthProvider=({children})=>{
 
-    const [token,setToken]=useState(localStorage.getItem("token"))
+    const [token,setToken]=useState(localStorage.getItem("token"));
+    const[user,setUser]=useState()
 
     const storeTokenInLS=(serverToken)=>{
         return localStorage.setItem('token', serverToken);
@@ -33,7 +34,8 @@ export const AuthProvider=({children})=>{
             });
 
             if(response.ok){
-                const data=await response.json()
+                const data=await response.json();
+                setUser(data.userData);
             }
             
         } catch (error) {

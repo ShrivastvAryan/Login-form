@@ -1,0 +1,18 @@
+To get data in contact form
+
+import{useAuth}
+
+const {user}=useAuth();
+
+const [userData,setUserData]=useState(true);
+
+if(userData == user){
+    setContact({
+        username:user.useraname,
+        email:user.email,
+        message:",
+    })
+
+    setUserData(false);
+}
+
